@@ -9,12 +9,12 @@ class OrdersMiddleware {
     res: express.Response,
     next: express.NextFunction
   ) {
-    if (req.body && req.body.email && req.body.password) {
+    if (req.body && req.body.shipping_limit_date && req.body.price && req.body.freight_value) {
       next();
     } else {
       res
         .status(400)
-        .send({ error: `Missing required fields email and password` });
+        .send({ error: `Missing required fields shipping_limit_date, price and freight_value` });
     }
   }
 
