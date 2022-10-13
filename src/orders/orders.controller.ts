@@ -31,7 +31,7 @@ class OrdersController {
       await ordersService.updateById({ id: req.params.id, ...req.body });
       return res
         .status(200)
-        .json({ status: true, message: "Order updated successfullt" });
+        .json({ status: true, message: "Order updated successfully" });
     } catch (error) {
       return res
         .status(400)
