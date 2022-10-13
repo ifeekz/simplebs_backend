@@ -11,10 +11,10 @@ export class AuthRoutes extends CommonRoutesConfig {
 
   configureRoutes() {
     // route to /login
-    this.app.route(`/login`).post(AuthController.authenticate, loginValidation);
+    this.app.route(`/api/auth/login`).post(AuthController.authenticate, loginValidation);
 
     // route to /account
-    this.app.patch(`/account`, [
+    this.app.patch(`/api/auth/account`, [
       AuthMiddleware.validateUser,
       AuthMiddleware.validateRequiredAccountBodyFields, 
       AuthController.updateAccount,

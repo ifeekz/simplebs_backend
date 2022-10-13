@@ -13,14 +13,14 @@ class AuthController {
 
       if (seller === null) {
         return res
-          .status(403)
+          .status(401)
           .json({ status: false, message: "Invalid username or password." });
       }
 
       return res.status(200).json(seller);
     } catch (error) {
       return res
-        .status(403)
+        .status(400)
         .json({ status: false, message: "Something went wrong: " + error });
     }
   }
