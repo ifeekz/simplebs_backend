@@ -10,13 +10,13 @@ export class OrdersRoutes extends CommonRoutesConfig {
   }
 
   configureRoutes() {
-    // request to /order_items
+    // request to /api/v1/order_items
     this.app
       .route(`/api/v1/order_items`)
       .all(AuthMiddleware.validateUser)
       .get(OrdersController.listOrders);
 
-    // requests to all http verb with this patters /order_items/:id
+    // requests to all http verb with this patters /api/v1/order_items/:id
     this.app.param(`id`, OrdersMiddleware.extractOrderId);
     this.app
       .route(`/api/v1/order_items/:id`)
