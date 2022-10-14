@@ -22,7 +22,7 @@ const PORT: number = Number(process.env.PORT) || 3000;
 app.use(express.json());
 
 // middleware to allow cross-origin requests
-app.use(cors());
+app.use(cors({ origin: '*' }));
 
 // preparing expressWinston logging middleware configuration,
 // which will automatically log all HTTP requests handled by Express.js
